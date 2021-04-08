@@ -1,11 +1,14 @@
-import { ChangeEvent, Dispatch, useContext } from 'react';
-import { ColorSlider } from './ColorSlider';
-import { RGBContext } from './context';
-import { AdjustmentAction } from './reducer';
-import { RGBColorType } from './types';
+import React, { ChangeEvent } from 'react';
+import RGBContext from './'
+export interface AdjustmentInputProps {
+  id: string;
+  label: string;
+  value: number;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+}
 
-interface ColorSidersProps extends RGBColorType {
-  dispatch: Dispatch<AdjustmentAction>;
+export interface ColorAdjustmentProps {
+  Adjustment: React.ComponentType<AdjustmentInputProps>
 }
 
 export const ColorSliders = () => {

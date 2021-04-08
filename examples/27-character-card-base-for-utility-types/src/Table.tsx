@@ -3,7 +3,7 @@ import { CharacterType } from './characters';
 
 type TableProps = { children: React.ReactNode };
 type TableRowProps = {
-  heading: string;
+  heading: keyof CharacterType;
   value: string | number;
 };
 

@@ -1,7 +1,12 @@
 import * as React from 'react';
 import { fetchDogFacts, DogFactType } from './dog-facts';
 
+type FormProps = {
+  onSubmit: (n: number) => void;
+};
+
 const Form = () => {
+  const [value, setValue] = React.useState(1);
   return (
     <form
       onSubmit={(event) => {
@@ -27,10 +32,17 @@ const Fact = ({ fact }: { fact: string }) => {
 };
 
 const Application = () => {
+  cosnt [facts, setFacts] = React.useState<DogFactType[]>([]);
+
+  const handleSubmit = (n: number) => {
+    fetchDogFacts(n).then(facts => setFacts(facts))
+  }
   return (
     <main>
-      <Form />
-      <section></section>
+      <Form onSubmit={handleSubmit} />
+      <section>
+        
+      </section>
     </main>
   );
 };
